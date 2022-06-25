@@ -1,0 +1,2 @@
+$((function(){$("#example").DataTable({dom:"Bfrtip",responsive:!0,ajax:{url:"/articles"},language:{url:"/js/es-MX.json"},buttons:[{text:'<i class="fa fa-file-excel"></i> Excel',className:"btn btn-success",extends:"excelHtml5"},"pdfHtml5"],columns:[{data:"num",title:"#",render:function(a,e,t,n){return"".concat(n.row+1)}},{data:"id"},{data:"name"},{data:"measure"},{data:"price"},{data:"type"}]})}));
+//# sourceMappingURL=view.js.map
