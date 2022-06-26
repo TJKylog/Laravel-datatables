@@ -20,7 +20,7 @@
                     <div class="card card-outline-azul">
                         <div class="card-header"></div>
                         <div class="card-body">
-                            <table class="table table-striped table-bordered" id="example">
+                            <table class="table table-secondary table-striped table-hover" id="example">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -41,5 +41,70 @@
         </div>
     </div>
     <script src="{{asset('js/app.js')}}"></script>
+    <script>
+        var table
+        $(() => {
+            table = $('#example').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                language: {
+                    url: 'es-MX.json'
+                },
+                buttons: [
+                    {
+                        text: '<i class="fa fa-file-excel"></i> Excel',
+                        className: 'btn btn-verde',
+                        extend: 'excelHtml5',
+                    },
+                    'pdfHtml5'
+                ],
+                columns: [
+                    { 
+                        data: 'num',
+                        title: '#',
+                        render : function(data, type, row, meta) {
+                            return `${meta.row + 1}`
+                        }
+                    },
+                    {
+                        data: 'id'
+                    },
+                    {
+                        data: 'name',
+            
+                    },
+                    {
+                        data: 'measure',
+                    },
+                    {
+                        data: 'price',
+                    },
+                    {
+                        data: 'type',
+                    },
+                ],
+            });
+            getData();
+        })
+
+        let data = []
+
+        window.getData = function() {
+            axios.get('/articles')
+            .then(response => {
+                data = response.data.data
+                table.clear().rows.add(data).draw();
+                Swal.fire({
+                    title: 'Cargado',
+                    text: 'Los datos se cargaron correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+    </script>
 </body>
 </html>

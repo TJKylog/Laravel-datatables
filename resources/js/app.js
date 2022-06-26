@@ -1,25 +1,19 @@
 require('./bootstrap');
-import $ from 'jquery';
-import DataTables from 'datatables.net';
 import 'datatables.net-bs5';
 import 'datatables.net-buttons-bs5';
 import 'datatables.net-buttons/js/buttons.colVis.js'
 import 'datatables.net-buttons/js/buttons.html5';
 import JSZip from 'jszip';
 window.JSZip = JSZip;
-import axios from 'axios';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-var table
+/* var table
 $(() => {
     table = $('#example').DataTable({
         dom: 'Bfrtip',
         responsive: true,
-        ajax: {
-            url: '/articles',
-        },
         language: {
             url: 'es-MX.json'
         },
@@ -27,7 +21,7 @@ $(() => {
             {
                 text: '<i class="fa fa-file-excel"></i> Excel',
                 className: 'btn btn-verde',
-                extends: 'excelHtml5',
+                extend: 'excelHtml5',
             },
             'pdfHtml5'
         ],
@@ -57,6 +51,7 @@ $(() => {
             },
         ],
     });
+    getData();
 })
 
 let data = []
@@ -70,4 +65,4 @@ window.getData = function() {
     .catch(error => {
         console.log(error);
     });
-}
+} */
