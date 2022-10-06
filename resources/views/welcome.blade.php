@@ -29,6 +29,7 @@
                                         <th>Medida</th>
                                         <th>Precio</th>
                                         <th>Tipo</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,7 +54,7 @@
                 buttons: [
                     {
                         text: '<i class="fa fa-file-excel"></i> Excel',
-                        className: 'btn btn-verde',
+                        className: 'btn btn-success text-white',
                         extend: 'excelHtml5',
                     },
                     'pdfHtml5'
@@ -82,6 +83,16 @@
                     {
                         data: 'type',
                     },
+                    {
+                        data: 'actions',
+                        render: function(data, type, row, meta) {
+                            return `
+                                <button class="btn btn-primary ver">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            `
+                        }
+                    }
                 ],
             });
             getData();
@@ -105,6 +116,14 @@
                 console.log(error);
             });
         }
+
+        $(document).on('click', '.ver', function() {
+            let button = $(this);
+            button.html('<i class="fa fa-spinner fa-spin"></i>');
+            setTimeout(() => {
+                button.html('<i class="fa fa-eye"></i>');
+            }, 2000);
+        })
     </script>
 </body>
 </html>

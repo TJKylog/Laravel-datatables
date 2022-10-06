@@ -10,6 +10,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 /* var table
+let data = []
 $(() => {
     table = $('#example').DataTable({
         dom: 'Bfrtip',
@@ -49,12 +50,16 @@ $(() => {
             {
                 data: 'type',
             },
+            {
+                data: null,
+                render: function(data, type, row, meta) {
+                    return `<a href="/articles/${row.id}/edit" class="btn btn-primary">Editar</a>`
+                }
+            }
         ],
     });
     getData();
 })
-
-let data = []
 
 window.getData = function() {
     axios.get('/articles')
