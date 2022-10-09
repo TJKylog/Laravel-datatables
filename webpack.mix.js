@@ -1,10 +1,10 @@
 const mix = require('laravel-mix');
 
-mix.webpackConfig({
+/* mix.webpackConfig({
     stats: {
         children: true,
     },
-});
+}); */
 
 /*
  |--------------------------------------------------------------------------

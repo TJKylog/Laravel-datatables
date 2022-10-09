@@ -63,6 +63,14 @@
  * Date: 2022-08-26T17:52Z
  */
 
+/*! Bootstrap 5 integration for DataTables' Responsive
+ * ©2021 SpryMedia Ltd - datatables.net/license
+ */
+
+/*! Bootstrap 5 styling wrapper for FixedHeader
+ * ©2018 SpryMedia Ltd - datatables.net/license
+ */
+
 /*! Bootstrap integration for DataTables' Buttons
  * ©2016 SpryMedia Ltd - datatables.net/license
  */
@@ -77,6 +85,14 @@
 
 /*! DataTables Bootstrap 5 integration
  * 2020 SpryMedia Ltd - datatables.net/license
+ */
+
+/*! FixedHeader 3.2.4
+ * ©2009-2022 SpryMedia Ltd - datatables.net/license
+ */
+
+/*! Responsive 2.2.9
+ * 2014-2021 SpryMedia Ltd - datatables.net/license
  */
 
 /*! http://mths.be/fromcodepoint v0.1.0 by @mathias */

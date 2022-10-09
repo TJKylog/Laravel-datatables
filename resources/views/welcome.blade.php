@@ -12,24 +12,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Productos</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
                     <div class="card card-outline-azul">
-                        <div class="card-header"></div>
+                        <div class="card-header">Productos</div>
                         <div class="card-body">
                             <table class="table table-secondary table-striped table-hover" id="example">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Medida</th>
-                                        <th>Precio</th>
-                                        <th>Tipo</th>
-                                        <th>Acciones</th>
+                                        <th class="all">#</th>
+                                        <th class="min-tablet"> ID</th>
+                                        <th class="min-tablet">Nombre</th>
+                                        <th class="min-tablet">Medida</th>
+                                        <th class="min-tablet">Precio</th>
+                                        <th class="min-tablet">Tipo</th>
+                                        <th class="all">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +42,19 @@
         $(() => {
             table = $('#example').DataTable({
                 dom: 'Bfrtip',
-                responsive: true,
+                pageLength: 30,
+                fixedHeader: {
+                    header: true,
+                    footer: true
+                },
+                responsive: {
+                    breakpoints: [
+                        { name: 'desktop', width: Infinity },
+                        { name: 'tablet',  width: 1024 },
+                        { name: 'fablet',  width: 768 },
+                        { name: 'phone',   width: 480 }
+                    ]
+                },
                 language: {
                     url: 'es-MX.json'
                 },
@@ -61,7 +68,7 @@
                 ],
                 columns: [
                     { 
-                        data: 'num',
+                        data: null,
                         title: '#',
                         render : function(data, type, row, meta) {
                             return `${meta.row + 1}`
@@ -84,7 +91,8 @@
                         data: 'type',
                     },
                     {
-                        data: 'actions',
+                        data: null,
+                        className: 'tablet desktop',
                         render: function(data, type, row, meta) {
                             return `
                                 <button class="btn btn-primary ver">
@@ -95,6 +103,7 @@
                     }
                 ],
             });
+            
             getData();
         })
 

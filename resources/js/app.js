@@ -3,6 +3,8 @@ import 'datatables.net-bs5';
 import 'datatables.net-buttons-bs5';
 import 'datatables.net-buttons/js/buttons.colVis.js'
 import 'datatables.net-buttons/js/buttons.html5';
+import 'datatables.net-responsive-bs5';
+import 'datatables.net-fixedheader-bs5';
 import JSZip from 'jszip';
 window.JSZip = JSZip;
 import pdfMake from 'pdfmake/build/pdfmake';
