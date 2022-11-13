@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <select name="select" id="select" class="form-control">
-                            <option value="0">Seleccione</option>
+                        <select multiple name="select" id="select" class="form-control">
+                            <option value="">Seleccione</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -23,8 +23,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <select name="select2" id="select2" class="form-control">
-                            <option value="0">Seleccione</option>
+                        <select multiple name="select2" id="select2" class="form-control">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -62,8 +61,14 @@
     <script>
         var table
         $(() => {
-            $("#select").select2();
-            $("#select2").selectpicker();
+            $("#select").select2({
+                placeholder: "Seleccione"
+            });
+            $("#select2").selectpicker({
+                liveSearch: true,
+                liveSearchPlaceholder: 'Buscar',
+                title: 'Seleccione'
+            });
             table = $('#example').DataTable({
                 dom: 'Bfrtip',
                 pageLength: 30,
@@ -86,9 +91,21 @@
                     {
                         text: '<i class="fa fa-file-excel"></i> Excel',
                         className: 'btn btn-success text-white',
+                        title: 'Productos',
                         extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [ 1, 2, 3, 4, 5 ]
+                        }
                     },
-                    'pdfHtml5'
+                    {
+                        text: '<i class="fa fa-file-pdf"></i> PDF',
+                        className: 'btn btn-danger text-white',
+                        title: 'Productos',
+                        extend: 'pdfHtml5',
+                        exportOptions: {
+                            columns: [ 1, 2, 3, 4, 5 ]
+                        }
+                    }
                 ],
                 columns: [
                     { 
@@ -123,7 +140,8 @@
                                     <i class="fa fa-eye"></i>
                                 </button>
                             `
-                        }
+                        },
+                        orderable: false
                     }
                 ],
             });
