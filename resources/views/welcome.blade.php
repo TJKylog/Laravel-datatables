@@ -104,6 +104,22 @@
                         extend: 'pdfHtml5',
                         exportOptions: {
                             columns: [ 1, 2, 3, 4, 5 ]
+                        },
+                        customize: function (doc) {
+                            doc.styles.title = {
+                                color: '#4c4c4c',
+                                fontSize: '30',
+                                alignment: 'center'
+                            }
+                            doc.styles['td:nth-child(2)'] = {
+                                width: '100px',
+                                'max-width': '100px',
+                            }
+                            doc.styles.tableHeader = {
+                                fillColor: '#4c4c4c',
+                                color: 'white',
+                            }
+                            doc.content[1].table.widths = "*";
                         }
                     }
                 ],
@@ -127,6 +143,9 @@
                     },
                     {
                         data: 'price',
+                        render: function(data, type, row, meta) {
+                            return `$${data}`
+                        }
                     },
                     {
                         data: 'type',
