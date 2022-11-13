@@ -1,4 +1,6 @@
 require('./bootstrap');
+import 'select2';
+import 'bootstrap-select';
 import 'datatables.net-bs5';
 import 'datatables.net-buttons-bs5';
 import 'datatables.net-buttons/js/buttons.colVis.js'

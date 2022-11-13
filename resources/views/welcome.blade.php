@@ -12,6 +12,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div class="form-group">
+                        <select name="select" id="select" class="form-control">
+                            <option value="0">Seleccione</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <select name="select2" id="select2" class="form-control">
+                            <option value="0">Seleccione</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <div class="card card-outline-azul">
                         <div class="card-header">Productos</div>
                         <div class="card-body">
@@ -40,6 +62,8 @@
     <script>
         var table
         $(() => {
+            $("#select").select2();
+            $("#select2").selectpicker();
             table = $('#example').DataTable({
                 dom: 'Bfrtip',
                 pageLength: 30,
@@ -109,8 +133,8 @@
 
         let data = []
 
-        window.getData = function() {
-            axios.get('/articles')
+        window.getData = async function() {
+            await axios.get('/articles')
             .then(response => {
                 data = response.data.data
                 table.clear().rows.add(data).draw();
