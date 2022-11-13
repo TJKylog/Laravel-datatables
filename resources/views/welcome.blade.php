@@ -37,7 +37,7 @@
                     <div class="card card-outline-azul">
                         <div class="card-header">Productos</div>
                         <div class="card-body">
-                            <table class="table table-secondary table-striped table-hover" id="example">
+                            <table class="table table-secondary table-striped table-hover w-100" id="example">
                                 <thead>
                                     <tr>
                                         <th class="all">#</th>
